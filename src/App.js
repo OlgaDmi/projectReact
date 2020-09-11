@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header/Header';
+import Login from './components/Login/Login';
+import Map from './components/Map/Map';
+import Profile from './components/Profile/Profile';
+import Registration from './components/Registration/Registration';
+import './App.scss';
 
-function App() {
-  return (
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pageName: 'Login'
+    };
+  }
+
+  changePage = (pageName) => {
+    this.setState({pageName: pageName});
+  }
+
+  getpage(page) {
+    switch (page) {
+      case 'Map':
+        return <Map/>;
+      case 'Profile':
+        return <Profile/>;
+      case 'Registration':
+        return <Registration onChangePage={this.changePage}/>; 
+      case 'Login':  
+      default:
+        return <Login onChangePage={this.changePage}/>;
+    }
+  }
+
+  render() {
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header pageName={this.state.pageName + ' Page'} onChangePage={this.changePage}/>
+      {this.getpage(this.state.pageName)}
     </div>
-  );
+    );
+  }
 }
 
 export default App;
