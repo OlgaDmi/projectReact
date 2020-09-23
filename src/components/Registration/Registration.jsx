@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './style.scss';
 
 class Registration extends React.Component {
@@ -7,7 +8,6 @@ class Registration extends React.Component {
     this.state = {value: ''};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // console.log(props);
     this.props = props;
   }
 
@@ -15,12 +15,10 @@ class Registration extends React.Component {
     this.setState({value: event.target.value});  
   }
   handleSubmit(event) {
-    // alert('Отправленное имя: ' + this.state.value);
     event.preventDefault();
   }
 
   changePage = (props, page) => {
-    // console.log(props);
     props.onChangePage(page);
   }
 
@@ -44,5 +42,9 @@ class Registration extends React.Component {
     );
   }
 }
+
+Registration.propTypes = {
+  onChangePage: PropTypes.func
+};
 
 export default Registration;
