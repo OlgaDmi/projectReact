@@ -1,8 +1,9 @@
 import React from 'react';
 import Menu from '../Menu/Menu';
+import PropTypes from 'prop-types';
 import './style.scss';
 
-function Header(props) {
+const Header = (props) => {
     return (
         <header className="App-header">
           <p>
@@ -13,4 +14,9 @@ function Header(props) {
     );
   }
   
+  Header.propTypes = {
+    onChangePage: PropTypes.func,
+    pageName: PropTypes.string
+  };
+
   export default Header;
