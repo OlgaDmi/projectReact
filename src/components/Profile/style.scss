@@ -1,0 +1,93 @@
+.profile {
+  width: 750px;
+  padding: 44px 60px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  background-color: white;
+  border-radius: 4px;
+  position: absolute;
+  left: 450px;
+  top: 150px;
+  text-align: center;
+  h1 {
+    margin: 0;
+    font-size: 2.125rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.17;
+    letter-spacing: 0.00735em;
+  }
+  .profile-h {
+    color: rgba(0, 0, 0, 0.54);
+    margin-bottom: 40px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+  }
+  .profile-form {
+    .profile-form__inner {
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 40px;
+      .profile-block {
+        width: 300px;
+        text-align: left;
+        box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
+        .profile-block__head {
+          display: flex;
+          justify-content: flex-end;
+          padding: 1%;
+          img {
+            width: 32px;
+          }
+        }
+        .profile-block__inner {
+          padding: 16px 32px;
+          .profile-field {
+            margin-bottom: 10px;
+            label {
+              color: rgba(0, 0, 0, 0.54);
+              padding: 0;
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 1;
+              letter-spacing: 0.00938em;
+            }
+            input {
+              width: 100%;
+              border: 0;
+              height: 1.1875em;
+              margin: 0;
+              display: block;
+              padding: 6px 0 7px;
+              min-width: 0;
+              background: none;
+              box-sizing: content-box;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+              &:focus {
+                outline: none;
+              }
+            }
+            .profile-error__text {
+              display: none;
+              color: #f44336;
+              font-size: 12px;
+              font-weight: 400;
+            }
+            &.profile-field--error {
+              label {
+                color: #f44336;
+              }
+              input {
+                border-bottom: 2px solid #f44336;
+              }
+              .profile-error__text {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

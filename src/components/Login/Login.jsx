@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {UserContext} from '../../context';
+import {connect} from 'react-redux';
+import {authenticate} from '../../actions';
+import {Link} from 'react-router-dom';
 import './style.scss';
 
 class Login extends React.Component {
@@ -32,33 +34,48 @@ class Login extends React.Component {
     props.onChangePage(page);
   }
 
+  authenticate = (event) => {
+    event.preventDefault();
+    this.props.authenticate(this.state.userEmail, this.state.userPassword);
+  };
+
   render() {
     return (
-    <div className="login">
-      <h1>Войти</h1>
-      <UserContext.Consumer>
-      {({logIn}) => ( 
-      <form onSubmit={this.handleSubmit} className="login-form">
-          <div className="login-field">
-            <label>Email:<em>*</em></label>
-            <input type="email" name="userName" value={this.state.userEmail} onChange={this.onChangeEmail} placeholder=""/>
-          </div>
-          <div className="login-field">
-            <label>Пароль:<em>*</em></label>
-            <input type="text" name="userPassword" value={this.state.userPassword} onChange={this.onChangePassword} placeholder=""/>
-          </div>
-          <input type="submit" onClick={() => logIn(this.state.userEmail, this.state.userPassword)} className="login-btn" value="Отправить" />
-      </form>
-      )}
-      </UserContext.Consumer>
-      <p onClick={() => this.changePage(this.props, 'Registration')} className="link">Зарегистрироваться</p>
+      <div className="content--background">
+        <div className="login">
+          {this.props.isLoggedIn ? (
+              <p>
+              You are logged in. <Link to="/profile">Go to profile</Link>
+            </p>
+        ) : (
+          <>
+          <h1>Войти</h1>
+          <form onSubmit={this.authenticate} className="login-form">
+              <div className="login-field">
+                <label>Email:<em>*</em></label>
+                <input type="email" name="userName" value={this.state.userEmail} onChange={this.onChangeEmail} placeholder=""/>
+              </div>
+              <div className="login-field">
+                <label>Пароль:<em>*</em></label>
+                <input type="text" name="userPassword" value={this.state.userPassword} onChange={this.onChangePassword} placeholder=""/>
+              </div>
+              <input type="submit" className="login-btn btn btn--yellow" value="Отправить" />
+          </form>
+          <Link className="link" to="/registration">Зарегистрироваться</Link>
+          </>
+        )}
+        </div>
     </div>
     );
   }
 }
 
 Login.propTypes = {
-  onChangePage: PropTypes.func
+  isLoggedIn: PropTypes.bool,
+  authenticate: PropTypes.func,
 };
 
-export default Login;
+export const LoginWithConnect = connect(
+  (state) => ({isLoggedIn: state.auth.isLoggedIn}),
+  { authenticate }
+)(Login);

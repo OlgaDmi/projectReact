@@ -1,27 +1,31 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {UserContext} from '../../context';
-let changePage = (props, page) => {
-    props.onChangePage(page);
-}
+import {logIn, logOut} from '../../actions'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom';
 
-const Menu = (props) => {
-    return (
-      <UserContext.Consumer>
-        {({logOut}) => (        
-          <ul className="nav">
-            <li onClick={() => changePage(props, 'Map')}>Карта</li>
-            <li onClick={() => changePage(props, 'Profile')}>Профиль</li>
-            <li onClick={() => changePage(props, 'Login')}>Логин</li>
-            <li onClick={logOut}>Выйти</li>
-          </ul> 
-        )}
-      </UserContext.Consumer>
-      );
-}
 
-Menu.propTypes = {
-    onChangePage: PropTypes.func
+class Menu extends React.Component {
+  constructor(props) {
+    super(props); 
+  }
+
+  unauthenticate = (event) => {
+    event.preventDefault();
+    this.props.logOut();
   };
 
-export default Menu;
+  render() { 
+    return (   
+      <ul className="nav">
+        <li><Link to="/map">Карта</Link></li>
+        <li><Link to="/profile">Профиль</Link></li>
+        <li onClick={this.unauthenticate}><a href="#">Выйти</a></li>
+      </ul> 
+    );
+  }
+}
+
+export const MenuWithConnect = connect(
+  null,
+  { logIn, logOut }
+)(Menu);
