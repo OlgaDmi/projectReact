@@ -1,19 +1,19 @@
-import {LOG_IN, LOG_OUT} from '../actions'
+import { LOG_IN, LOG_OUT } from "../actions";
 
 const initialState = {
-  isLoggedIn: false
-}
+  isLoggedIn: false,
+};
 
 function rootReducer(state = initialState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case LOG_IN: {
-      return {isLoggedIn: true}
+      return { isLoggedIn: true };
     }
     case LOG_OUT: {
-      return {isLoggedIn: false}
+      return { isLoggedIn: false };
     }
     default:
-      return state
+      return state;
   }
 }
 
