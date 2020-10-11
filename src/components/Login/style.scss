@@ -2,7 +2,8 @@
   width: 300px;
   height: 300px;
   padding: 44px 60px;
-  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   background-color: white;
   border-radius: 4px;
   position: absolute;
@@ -15,14 +16,6 @@
         margin-right: 5%;
       }
     }
-    .login-btn {
-      // color: rgba(0, 0, 0, 0.87);
-      // background-color: #ffc617;
-      // box-shadow: none;
-      // border-color: #ffc617;
-      // border-radius: 4px;
-      // padding: 6px 16px;
-    }
   }
   .link {
     color: #1473e6;
@@ -31,5 +24,9 @@
     &:hover {
       opacity: 0.7;
     }
+  }
+  .login-btn {
+    margin-left: auto;
+    margin-right: 0;
   }
 }

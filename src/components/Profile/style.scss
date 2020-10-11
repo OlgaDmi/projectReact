@@ -1,7 +1,8 @@
 .profile {
   width: 750px;
   padding: 44px 60px;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   background-color: white;
   border-radius: 4px;
   position: absolute;
@@ -25,6 +26,9 @@
     letter-spacing: 0.00938em;
   }
   .profile-form {
+    .profile-btn {
+      margin: 0 auto;
+    }
     .profile-form__inner {
       display: flex;
       justify-content: space-evenly;
@@ -32,7 +36,9 @@
       .profile-block {
         width: 300px;
         text-align: left;
-        box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
+        box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
+          0px 3px 4px 0px rgba(0, 0, 0, 0.14),
+          0px 1px 8px 0px rgba(0, 0, 0, 0.12);
         .profile-block__head {
           display: flex;
           justify-content: flex-end;
@@ -52,21 +58,6 @@
               font-weight: 400;
               line-height: 1;
               letter-spacing: 0.00938em;
-            }
-            input {
-              width: 100%;
-              border: 0;
-              height: 1.1875em;
-              margin: 0;
-              display: block;
-              padding: 6px 0 7px;
-              min-width: 0;
-              background: none;
-              box-sizing: content-box;
-              border-bottom: 1px solid rgba(0, 0, 0, 0.42);
-              &:focus {
-                outline: none;
-              }
             }
             .profile-error__text {
               display: none;
