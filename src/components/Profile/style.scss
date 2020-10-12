@@ -25,10 +25,14 @@
     line-height: 1.5;
     letter-spacing: 0.00938em;
   }
+  .profile-btn {
+    margin: 0 auto;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.87);
+  }
   .profile-form {
-    .profile-btn {
-      margin: 0 auto;
-    }
     .profile-form__inner {
       display: flex;
       justify-content: space-evenly;

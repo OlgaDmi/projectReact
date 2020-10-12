@@ -1,8 +1,8 @@
 import React from "react";
 import { LoginWithConnect } from "./components/Login/Login";
-import Map from "./components/Map/Map";
+import {MapWithConnect} from "./components/Map/Map";
 import { ProfileWithConnect } from "./components/Profile/Profile";
-import Registration from "./components/Registration/Registration";
+import { RegistrationWithConnect } from "./components/Registration/Registration";
 import PropTypes from "prop-types";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
@@ -10,7 +10,7 @@ import "./App.scss";
 class App extends React.Component {
   privatePage = (pagePath) => {
     if (this.props.isLoggedIn & (pagePath === "/map")) {
-      return <Map />;
+      return <MapWithConnect />;
     } else if (this.props.isLoggedIn & (pagePath === "/profile")) {
       return <ProfileWithConnect />;
     } else {
@@ -27,7 +27,7 @@ class App extends React.Component {
               path="/profile"
               render={() => this.privatePage("/profile")}
             />
-            <Route path="/registration" component={Registration} />
+            <Route path="/registration" component={RegistrationWithConnect} />
             <Route component={LoginWithConnect} />
           </Switch>
         </div>

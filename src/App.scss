@@ -16,6 +16,7 @@
 
 input {
   cursor: pointer;
+  font-size: 16px;
   width: 100%;
   border: 0;
   height: 1.1875em;
@@ -29,6 +30,19 @@ input {
   &:focus {
     outline: none;
   }
+  &:hover {
+    border-bottom: 2px solid black;
+  }
+}
+
+h1, p {
+  text-align: left;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+h1 {
+  font-size: 34px;
 }
 
 .btn {
@@ -43,6 +57,15 @@ input {
     &:hover {
       border-color: rgb(178, 138, 16);
       background-color: rgb(178, 138, 16);
+    }
+  }
+  &:disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+    &:hover {
+      border-color: rgba(0, 0, 0, 0.12);
+      background-color: rgba(0, 0, 0, 0.12);
     }
   }
 }

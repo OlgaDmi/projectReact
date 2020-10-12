@@ -11,6 +11,85 @@
   right: 0;
 }
 
+.map-form {
+  width: 450px;
+  height: auto;
+  padding: 44px 60px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  background-color: white;
+  border-radius: 4px;
+  position: absolute;
+  left: 20px;
+  top: 100px;
+  .map-btn {
+    border: none;
+    width: 96%;
+    padding: 2.3%;
+    margin-top: 28px;
+    font-size: 16px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  .map-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 28px 0 0 0;
+    cursor: pointer;
+    .line {
+      background-color: rgb(204, 204, 204);
+      width: 1px;
+      height: 18px;
+      position: absolute;
+      right: 15%;
+    }
+    .icon-open{
+      height: 12px;
+      width: 12px;
+      position: absolute;
+      right: 11%;
+    }
+    .icon-open, .icon-close {
+      fill: rgb(204, 204, 204);
+    }
+    .icon-close {
+      position: absolute;
+      right: 15%;
+      height: 28px;
+      width: 28px;
+    }
+    input {
+      width: 100%;
+      &:focus {
+        border-bottom: 2px solid #1473e6; 
+        & ~ .icon-open, & ~ .icon-close {
+          fill: #8e8e8e;
+        }
+      }
+    }
+  }
+  .map-list {
+    background-color: white;
+    text-align: left;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+      0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    ul {
+      list-style: none;
+      padding-left: 0px;
+      li {
+        font-size: 16px;
+        line-height: 24px;
+        padding: 2%;
+        cursor: pointer;
+        &:hover {
+          background-color: lightgrey;
+        }
+      }
+    }
+  }
+}
+
 .sidebarStyle {
   display: inline-block;
   position: absolute;

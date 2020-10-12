@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { authenticate } from "../../actions";
 import { Link, Redirect } from "react-router-dom";
+import logo from "../../components/Header/logo.svg";
 import "./style.scss";
 
 class Login extends React.Component {
@@ -30,9 +31,9 @@ class Login extends React.Component {
     event.preventDefault();
   }
 
-  changePage = (props, page) => {
-    props.onChangePage(page);
-  };
+  // changePage = (props, page) => {
+  //   props.onChangePage(page);
+  // };
 
   authenticate = (event) => {
     event.preventDefault();
@@ -42,12 +43,18 @@ class Login extends React.Component {
   render() {
     return (
       <div className="content--background">
+        <img src={logo} className="logo" alt="Logo" />
         <div className="login">
           {this.props.isLoggedIn ? (
             <Redirect to="/map" />
           ) : (
             <>
               <h1>Войти</h1>
+              <p>Новый пользователь?&nbsp;
+                <Link className="link" to="/registration">
+                  Зарегистрируйтесь
+                </Link>
+                </p>
               <form onSubmit={this.authenticate} className="login-form">
                 <div className="login-field">
                   <input
@@ -75,9 +82,6 @@ class Login extends React.Component {
                   value="Войти"
                 />
               </form>
-              <Link className="link" to="/registration">
-                Зарегистрироваться
-              </Link>
             </>
           )}
         </div>

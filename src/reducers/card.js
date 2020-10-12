@@ -1,6 +1,7 @@
-import { SAVE_CARD } from "../actions";
+import { SEND_CARD } from "../actions";
 
 const initialState = {
+  isCard: false,
   cardNumber: "1000 0000 0000 0000",
   cardDate: "",
   cardUserName: "",
@@ -9,9 +10,10 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
-    case SAVE_CARD:
+    case SEND_CARD:
       const { cardNumber, cardDate, cardUserName, cardCvc } = action.payload;
       return {
+        isCard: true,
         cardNumber: cardNumber,
         cardDate: cardDate,
         cardUserName: cardUserName,
